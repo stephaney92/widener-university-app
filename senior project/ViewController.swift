@@ -10,7 +10,7 @@ import UIKit
 import Firebase
 
 class ViewController: UIViewController {
-
+    //email and password variables for login page 
     @IBOutlet weak var userEmail: UITextField!
     @IBOutlet weak var userPassword: UITextField!
     

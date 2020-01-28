@@ -22,6 +22,16 @@ class createAccountViewController: UIViewController {
     
 
     @IBAction func createButtonPressed(_ sender: Any) {
+        let userEmailText = userEmail.text;
+        let userPasswordText = userPassword.text;
+        
+        //check to see if fields are empty
+        if (userEmailText!.isEmpty || userPasswordText!.isEmpty){
+            displayMyAlertMessage(userMessage: "All fields are required")
+            return
+        }
+        //firbase send data to server side and store in database
+        
         //both can not be nil to work, email/password must be entered to trigger auth
         if let email = userEmail.text, let password = userPassword.text{
             //uses email and password typed in by users to create an account
@@ -37,5 +47,17 @@ class createAccountViewController: UIViewController {
                 }
             }
         }
-}
+    }
+    
+    //alert display on view controller
+    func displayMyAlertMessage(userMessage: String){
+        let myAlert = UIAlertController(title: "Alert" , message: userMessage, preferredStyle: UIAlertController.Style.alert);
+        
+        let okAction = UIAlertAction(title: "Ok" , style: UIAlertAction.Style.default, handler: nil);
+        
+        myAlert.addAction(okAction);
+        
+        self.present(myAlert , animated: true, completion: nil);
+    }
+    
 }
