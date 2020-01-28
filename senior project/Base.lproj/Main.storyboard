@@ -39,7 +39,7 @@
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <nil key="textColor"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
-                                <textInputTraits key="textInputTraits"/>
+                                <textInputTraits key="textInputTraits" secureTextEntry="YES"/>
                             </textField>
                             <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="ihF-gY-rsc">
                                 <rect key="frame" x="149" y="566" width="126" height="30"/>
@@ -73,6 +73,14 @@
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                         <viewLayoutGuide key="safeArea" id="XoQ-fQ-gzu"/>
                     </view>
+                    <toolbarItems>
+                        <barButtonItem title="Logout" width="189" id="J87-yt-L9Z">
+                            <connections>
+                                <action selector="LogoutPressed:" destination="G36-f2-vbK" id="OKO-Pe-hxL"/>
+                            </connections>
+                        </barButtonItem>
+                    </toolbarItems>
+                    <simulatedToolbarMetrics key="simulatedBottomBarMetrics"/>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="mbY-Ke-6hS" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
