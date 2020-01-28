@@ -69,10 +69,10 @@
             </objects>
             <point key="canvasLocation" x="1157" y="394"/>
         </scene>
-        <!--View Controller-->
+        <!--Register View Controller-->
         <scene sceneID="4vo-fC-scp">
             <objects>
-                <viewController id="qOb-CD-tCs" sceneMemberID="viewController">
+                <viewController id="qOb-CD-tCs" customClass="RegisterViewController" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="sAV-Uc-ufQ">
                         <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -105,10 +105,23 @@
                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                 <textInputTraits key="textInputTraits"/>
                             </textField>
+                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="zzM-lF-KE5">
+                                <rect key="frame" x="125" y="689" width="125" height="30"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <state key="normal" title="Create"/>
+                                <connections>
+                                    <action selector="createButtonPressed:" destination="qOb-CD-tCs" eventType="touchUpInside" id="VJc-6C-ehE"/>
+                                </connections>
+                            </button>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                         <viewLayoutGuide key="safeArea" id="QKj-PV-B3F"/>
                     </view>
+                    <connections>
+                        <outlet property="userEmailText" destination="xUc-AJ-zNA" id="01f-SY-Q4b"/>
+                        <outlet property="userPasswordText" destination="IJB-BW-Tds" id="viy-8w-nQd"/>
+                        <segue destination="G36-f2-vbK" kind="show" identifier="Registertoapp" id="9rt-Ab-rz5"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="58T-e9-38H" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
