@@ -22,6 +22,11 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         
         //ports to connect to firebase servers 
         FirebaseApp.configure()
+        
+        //creates firebase firestore
+        let db = Firestore.firestore()
+        
+        print(db)
         return true
     }
 

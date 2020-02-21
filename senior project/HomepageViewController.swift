@@ -11,6 +11,9 @@ import Firebase
 
 class HomepageViewController: UIViewController {
 
+    @IBOutlet weak var licensePlateText: UITextField!
+    @IBOutlet weak var stateText: UITextField!
+    
     override func viewDidLoad() {
         super.viewDidLoad()
 
@@ -19,7 +22,27 @@ class HomepageViewController: UIViewController {
         //navigationItem.hidesBackButton = true
     }
     
-    @IBAction func LogoutPressed(_ sender: UIBarButtonItem) {
+    @IBAction func doneButtonPressed(_ sender: Any) {
+        let licensePlate = licensePlateText.text;
+        let state = stateText.text;
+        
+        if (licensePlate!.isEmpty || state!.isEmpty){
+            displayMyAlertMessage(userMessage: "All fields are required")
+            return
+        }
+    }
+        //alert display on view controller
+        func displayMyAlertMessage(userMessage: String){
+            let myAlert = UIAlertController(title: "Alert" , message: userMessage, preferredStyle: UIAlertController.Style.alert);
+            
+            let okAction = UIAlertAction(title: "Ok" , style: UIAlertAction.Style.default, handler: nil);
+            
+            myAlert.addAction(okAction);
+            
+            self.present(myAlert , animated: true, completion: nil);
+        }
+    }
+    /*@IBAction func LogoutPressed(_ sender: UIBarButtonItem) {
         let firebaseAuth = Auth.auth()
         do {
             //pops all view off the stack except the root view and takes you back to root view loginpage
@@ -30,13 +53,14 @@ class HomepageViewController: UIViewController {
         } catch let signOutError as NSError {
             print ("Error signing out: %@", signOutError)
         }
-    }
+    }*/
     
     
     
     
         
-     }
+
+
     /*
      // MARK: - Navigation
 

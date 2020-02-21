@@ -1,55 +1,48 @@
 //
-//  createAccountViewController.swift
+//  logintoCarViewController.swift
 //  senior project
 //
-//  Created by Stephaney Sumner on 1/28/20.
+//  Created by Stephaney Sumner on 2/20/20.
 //  Copyright © 2020 senior project. All rights reserved.
 //
 
 import UIKit
 import Firebase
 
-class createAccountViewController: UIViewController {
+class logintoCarViewController: UIViewController {
 
     @IBOutlet weak var userEmail: UITextField!
     @IBOutlet weak var userPassword: UITextField!
     
    /* override func viewDidLoad() {
+        
         super.viewDidLoad()
 
         // Do any additional setup after loading the view.
     }*/
-    
-
-    @IBAction func createButtonPressed(_ sender: UIButton) {
+    @IBAction func LoginBPressed(_ sender: UIButton) {
         let userEmailText = userEmail.text;
         let userPasswordText = userPassword.text;
-        
-        //check to see if fields are empty
         if (userEmailText!.isEmpty || userPasswordText!.isEmpty){
             displayMyAlertMessage(userMessage: "All fields are required")
             return
         }
-        //firbase send data to server side and store in database
-        
-        //both can not be nil to work, email/password must be entered to trigger auth
         if let email = userEmail.text, let password = userPassword.text{
-            //uses email and password typed in by users to create an account
-            Auth.auth().createUser(withEmail: email, password: password) { authResult, error in
-                //checking for errors if theres an error then message will be printed
-                if let e = error{
-                    print(e)
-                }else{
-                    //if no errors then account is create and user is navigated to homepage
-                    self.performSegue(withIdentifier: constants.createAccountSegue, sender: self)
-                    //takes user from from register page to homepage
-                    //self is the origin of the segue which is the registration page
+            //uses the existing email and password from firbase to login to homepage
+            Auth.auth().signIn(withEmail: email, password: password) { [weak self] authResult, error in
+            if let e = error{
+                print(e)
+            }else{
+            //if no errors then user is navigated to map page
+               self?.performSegue(withIdentifier: constants.loginSegue, sender: self)
+            //takes user from from login page to homepage
+            //self is the origin of the segue which is the registration page
+         
                 }
             }
         }
     }
     
-    //alert display on view controller
     func displayMyAlertMessage(userMessage: String){
         let myAlert = UIAlertController(title: "Alert" , message: userMessage, preferredStyle: UIAlertController.Style.alert);
         
@@ -58,6 +51,17 @@ class createAccountViewController: UIViewController {
         myAlert.addAction(okAction);
         
         self.present(myAlert , animated: true, completion: nil);
+        }
     }
     
-}
+    /*
+    // MARK: - Navigation
+
+    // In a storyboard-based application, you will often want to do a little preparation before navigation
+    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+        // Get the new view controller using segue.destination.
+        // Pass the selected object to the new view controller.
+    }
+    */
+
+
