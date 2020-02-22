@@ -7,13 +7,23 @@
 //
 
 import UIKit
+import MapKit
 
 class mapViewController: UIViewController {
 
+    @IBOutlet weak var map: MKMapView!
+    
     override func viewDidLoad() {
         super.viewDidLoad()
-
-        // Do any additional setup after loading the view.
+        //set the map location to a specific location when the view loads
+        let centerLocation = CLLocationCoordinate2DMake(39.863052 , -75.357571)
+        //logingitude and latitude that the map will cover
+        let mapSpan = MKCoordinateSpan(latitudeDelta: 0.01, longitudeDelta: 0.01)
+        //range that the map will show
+        let mapRange = MKCoordinateRegion(center: centerLocation, span: mapSpan)
+        //what we will see on the map
+        self.map.setRegion(mapRange, animated: false)
+        
     }
     
 

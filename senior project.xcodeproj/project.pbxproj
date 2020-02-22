@@ -12,6 +12,7 @@
 		5F5563C823FCCF1300A6C62E /* mapViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5F5563C723FCCF1300A6C62E /* mapViewController.swift */; };
 		5F5563CA23FF060A00A6C62E /* constants.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5F5563C923FF060A00A6C62E /* constants.swift */; };
 		5F5563CE23FF218800A6C62E /* logintoCarViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5F5563CD23FF218700A6C62E /* logintoCarViewController.swift */; };
+		5F5563D023FF781500A6C62E /* carSpecs.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5F5563CF23FF781500A6C62E /* carSpecs.swift */; };
 		5FAEFF4D23DFB6D900CBC3E1 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5FAEFF4C23DFB6D900CBC3E1 /* AppDelegate.swift */; };
 		5FAEFF4F23DFB6D900CBC3E1 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5FAEFF4E23DFB6D900CBC3E1 /* ViewController.swift */; };
 		5FAEFF5223DFB6D900CBC3E1 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 5FAEFF5023DFB6D900CBC3E1 /* Main.storyboard */; };
@@ -51,6 +52,7 @@
 		5F5563C723FCCF1300A6C62E /* mapViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = mapViewController.swift; sourceTree = "<group>"; };
 		5F5563C923FF060A00A6C62E /* constants.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = constants.swift; sourceTree = "<group>"; };
 		5F5563CD23FF218700A6C62E /* logintoCarViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = logintoCarViewController.swift; sourceTree = "<group>"; };
+		5F5563CF23FF781500A6C62E /* carSpecs.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = carSpecs.swift; sourceTree = "<group>"; };
 		5FAEFF4923DFB6D900CBC3E1 /* senior project.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "senior project.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		5FAEFF4C23DFB6D900CBC3E1 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		5FAEFF4E23DFB6D900CBC3E1 /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
@@ -141,6 +143,7 @@
 				5F5563C723FCCF1300A6C62E /* mapViewController.swift */,
 				5F5563C923FF060A00A6C62E /* constants.swift */,
 				5F5563CD23FF218700A6C62E /* logintoCarViewController.swift */,
+				5F5563CF23FF781500A6C62E /* carSpecs.swift */,
 			);
 			path = "senior project";
 			sourceTree = "<group>";
@@ -430,6 +433,7 @@
 				5F5563C423E0191E00A6C62E /* createAccountViewController.swift in Sources */,
 				5FAEFF4D23DFB6D900CBC3E1 /* AppDelegate.swift in Sources */,
 				5F5563CA23FF060A00A6C62E /* constants.swift in Sources */,
+				5F5563D023FF781500A6C62E /* carSpecs.swift in Sources */,
 				5F5563C823FCCF1300A6C62E /* mapViewController.swift in Sources */,
 				5FAEFF5523DFB6D900CBC3E1 /* senior_project.xcdatamodeld in Sources */,
 				5F5563CE23FF218800A6C62E /* logintoCarViewController.swift in Sources */,
