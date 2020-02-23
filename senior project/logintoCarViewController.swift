@@ -31,7 +31,7 @@ class logintoCarViewController: UIViewController {
             //uses the existing email and password from firbase to login to homepage
             Auth.auth().signIn(withEmail: email, password: password) { [weak self] authResult, error in
             if let e = error{
-                print(e)
+                self?.displayMyAlertMessage(userMessage: "Error: \(e)")
             }else{
             //if no errors then user is navigated to map page
                self?.performSegue(withIdentifier: constants.loginSegue, sender: self)

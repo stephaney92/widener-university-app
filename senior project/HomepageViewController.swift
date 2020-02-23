@@ -7,16 +7,19 @@
 //
 
 import UIKit
-import Firebase
+import FirebaseDatabase
 
 class HomepageViewController: UIViewController {
 
     @IBOutlet weak var licensePlateText: UITextField!
     @IBOutlet weak var stateText: UITextField!
+    var ref: DatabaseReference!
     
     override func viewDidLoad() {
         super.viewDidLoad()
-
+        //writing data into database
+        ref = Database.database().reference()
+        
         // Do any additional setup after loading the view.
         //hides back button on homepage 
         //navigationItem.hidesBackButton = true
@@ -29,10 +32,14 @@ class HomepageViewController: UIViewController {
         if (licensePlate!.isEmpty || state!.isEmpty){
             displayMyAlertMessage(userMessage: "All fields are required")
             return
+            
         }
+        //ad car specs to user in firbase
+        ref?.child("UserCarSpecs").childByAutoId().setValue(licensePlateText.text)
     }
+   
         //alert display on view controller
-        func displayMyAlertMessage(userMessage: String){
+    func displayMyAlertMessage(userMessage: String){
             let myAlert = UIAlertController(title: "Alert" , message: userMessage, preferredStyle: UIAlertController.Style.alert);
             
             let okAction = UIAlertAction(title: "Ok" , style: UIAlertAction.Style.default, handler: nil);

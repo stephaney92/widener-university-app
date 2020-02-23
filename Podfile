@@ -6,6 +6,7 @@ target 'senior project' do
   use_frameworks!
   pod 'Firebase/Auth'
   pod 'Firebase/Firestore'
+  pod 'Firebase/Database'
   
   # Pods for senior project
 
