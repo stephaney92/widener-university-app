@@ -7,19 +7,19 @@
 //
 
 import UIKit
-import FirebaseDatabase
+import Firebase
 
 class HomepageViewController: UIViewController {
 
     @IBOutlet weak var licensePlateText: UITextField!
     @IBOutlet weak var stateText: UITextField!
-    var ref: DatabaseReference!
+    //reference to firestore database, run methods and commmands to firestore database
+    let db = Firestore.firestore()
     
     override func viewDidLoad() {
         super.viewDidLoad()
         //writing data into database
-        ref = Database.database().reference()
-        
+       
         // Do any additional setup after loading the view.
         //hides back button on homepage 
         //navigationItem.hidesBackButton = true
@@ -34,8 +34,8 @@ class HomepageViewController: UIViewController {
             return
             
         }
-        //ad car specs to user in firbase
-        ref?.child("UserCarSpecs").childByAutoId().setValue(licensePlateText.text)
+        //ad car specs to user in firebase database 
+       
     }
    
         //alert display on view controller

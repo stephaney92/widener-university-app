@@ -7,16 +7,22 @@ target 'senior project' do
   pod 'Firebase/Auth'
   pod 'Firebase/Firestore'
   pod 'Firebase/Database'
+  pod 'Firebase/Core'
+  pod 'FirebaseFirestoreSwift'
   
   # Pods for senior project
 
   target 'senior projectTests' do
     inherit! :search_paths
     # Pods for testing
+  pod 'Firebase/Auth'
+  pod 'Firebase/Core'
+  pod 'Firebase/Firestore'
   end
 
   target 'senior projectUITests' do
     # Pods for testing
+   
   end
 
 end

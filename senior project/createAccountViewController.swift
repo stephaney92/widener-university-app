@@ -13,24 +13,41 @@ class createAccountViewController: UIViewController {
 
     @IBOutlet weak var userEmail: UITextField!
     @IBOutlet weak var userPassword: UITextField!
+    @IBOutlet weak var userName: UITextField!
+    //reference to firestore database, run methods and commmands to firestore database
+    let db = Firestore.firestore()
     
-   /* override func viewDidLoad() {
+   override func viewDidLoad() {
         super.viewDidLoad()
-
+       
         // Do any additional setup after loading the view.
-    }*/
-    
+    }
+   
 
     @IBAction func createButtonPressed(_ sender: UIButton) {
+        let nameText = userName.text;
         let userEmailText = userEmail.text;
         let userPasswordText = userPassword.text;
         
+        //adding username to database
+        //firbase send data to server side and store in database
+        // Add a new document with a userName generated ID by user with name
+        // var ref: DocumentReference? = nil
+        
+        db.collection("NewUsers").document(userName.text!).setData(["username" : userEmail.text!])
+            { err in
+             if let err = err {
+                 print("Error adding document: \(err)")
+             }
+             /*else {
+                 print("Document added with ID: \(ref!.documentID)")
+             }*/
+         }
         //check to see if fields are empty
-        if (userEmailText!.isEmpty || userPasswordText!.isEmpty){
+        if (userEmailText!.isEmpty || userPasswordText!.isEmpty || nameText!.isEmpty){
             displayMyAlertMessage(userMessage: "All fields are required")
             return
         }
-        //firbase send data to server side and store in database
         
         //both can not be nil to work, email/password must be entered to trigger auth
         if let email = userEmail.text, let password = userPassword.text{
