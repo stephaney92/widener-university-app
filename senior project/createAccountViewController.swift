@@ -14,8 +14,7 @@ class createAccountViewController: UIViewController {
     @IBOutlet weak var userEmail: UITextField!
     @IBOutlet weak var userPassword: UITextField!
     @IBOutlet weak var userName: UITextField!
-    //reference to firestore database, run methods and commmands to firestore database
-    let db = Firestore.firestore()
+    
     
    override func viewDidLoad() {
         super.viewDidLoad()
@@ -28,21 +27,15 @@ class createAccountViewController: UIViewController {
         let nameText = userName.text;
         let userEmailText = userEmail.text;
         let userPasswordText = userPassword.text;
+        //reference to firestore database, run methods and commmands to firestore database
+        let db = Firestore.firestore()
         
         //adding username to database
         //firbase send data to server side and store in database
         // Add a new document with a userName generated ID by user with name
         // var ref: DocumentReference? = nil
         
-        db.collection("NewUsers").document(userName.text!).setData(["username" : userEmail.text!])
-            { err in
-             if let err = err {
-                 print("Error adding document: \(err)")
-             }
-             /*else {
-                 print("Document added with ID: \(ref!.documentID)")
-             }*/
-         }
+
         //check to see if fields are empty
         if (userEmailText!.isEmpty || userPasswordText!.isEmpty || nameText!.isEmpty){
             displayMyAlertMessage(userMessage: "All fields are required")
@@ -61,6 +54,14 @@ class createAccountViewController: UIViewController {
                     self.performSegue(withIdentifier: constants.createAccountSegue, sender: self)
                     //takes user from from register page to homepage
                     //self is the origin of the segue which is the registration page
+                    //add new users in new user collection
+                    db.collection("NewUsers").document(self.userName.text!).setData(["username" : self.userEmail.text!, "uid": authResult!.user.uid])
+                        { err in
+                            if let err = err {
+                                print("Error adding document: \(err)")
+                            }
+                           
+                        }
                 }
             }
         }
