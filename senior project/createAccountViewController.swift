@@ -14,9 +14,10 @@ class createAccountViewController: UIViewController {
     @IBOutlet weak var userEmail: UITextField!
     @IBOutlet weak var userPassword: UITextField!
     @IBOutlet weak var userName: UITextField!
+    @IBOutlet weak var userPlate: UITextField!
+    @IBOutlet weak var userCarName: UITextField!
     
-    
-   override func viewDidLoad() {
+    override func viewDidLoad() {
         super.viewDidLoad()
        
         // Do any additional setup after loading the view.
@@ -27,6 +28,9 @@ class createAccountViewController: UIViewController {
         let nameText = userName.text;
         let userEmailText = userEmail.text;
         let userPasswordText = userPassword.text;
+        let userPlateText = userPlate.text;
+        let userCar = userCarName.text;
+        
         //reference to firestore database, run methods and commmands to firestore database
         let db = Firestore.firestore()
         
@@ -37,7 +41,7 @@ class createAccountViewController: UIViewController {
         
 
         //check to see if fields are empty
-        if (userEmailText!.isEmpty || userPasswordText!.isEmpty || nameText!.isEmpty){
+        if (userEmailText!.isEmpty || userPasswordText!.isEmpty || nameText!.isEmpty || userPlateText!.isEmpty || userCar!.isEmpty){
             displayMyAlertMessage(userMessage: "All fields are required")
             return
         }
@@ -55,15 +59,22 @@ class createAccountViewController: UIViewController {
                     //takes user from from register page to homepage
                     //self is the origin of the segue which is the registration page
                     //add new users in new user collection
-                    db.collection("NewUsers").document(self.userName.text!).setData(["username" : self.userEmail.text!, "uid": authResult!.user.uid])
+                    db.collection("NewUsers").document(self.userName.text!).setData(["username" : self.userEmail.text!, "plate": self.userPlate.text!, "uid": authResult!.user.uid])
                         { err in
                             if let err = err {
                                 print("Error adding document: \(err)")
                             }
                            
-                        }
-                }
-            }
+                    }
+                   /* db.collection("NewUsers").document(self.userName.text!).collection("Cars").document(self.userCarName.text!).setData(["username" : self.userEmail.text!, "plate": self.userPlate.text!, "uid": authResult!.user.uid])
+                        { err in
+                            if let err = err {
+                                print("Error adding document: \(err)")
+                            }
+                           
+                    }*/
+              }
+           }
         }
     }
     

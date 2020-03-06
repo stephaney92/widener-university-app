@@ -29,7 +29,7 @@ class mapViewController: UIViewController, MKMapViewDelegate{
         super.viewDidLoad()
       
         //set the map location to a specific location when the view loads
-        let centerLocation = CLLocationCoordinate2DMake(39.863052 , -75.357571)
+        let centerLocation = CLLocationCoordinate2DMake(39.863048 , -75.357583)
         //logingitude and latitude that the map will cover
         let mapSpan = MKCoordinateSpan(latitudeDelta: 0.00001, longitudeDelta: 0.00001)
         //range that the map will show
