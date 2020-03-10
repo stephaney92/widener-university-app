@@ -93,10 +93,19 @@ class mapViewController: UIViewController, MKMapViewDelegate{
                         let lat = point.latitude
                         let lon = point.longitude
                         
-                        let parkspaceone = document.get("spot") as! String
-                        if (parkspaceone == "p1"){
+                        //string variable for spot field in firebase
+                        let spotpone = document.get("spot") as! String
+                        let spotptwo = document.get("spot") as! String
+                        //if the spot in firbase matches the string then take the coordinates, add them to an annotation and place on the map
+                        if (spotpone == "p1"){
+                            parkSpaceOne.title = "P1"
                             parkSpaceOne.coordinate = CLLocationCoordinate2D(latitude: lat, longitude: lon)
                             self.map.addAnnotation(parkSpaceOne)
+                        }
+                        else if (spotptwo == "p2"){
+                            parkSpaceOne.title = "P2"
+                            parkSpaceTwo.coordinate = CLLocationCoordinate2D(latitude: lat, longitude: lon)
+                            self.map.addAnnotation(parkSpaceTwo)
                         }
                    
                         /*if (document.get("spot") === "p1"){
