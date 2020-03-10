@@ -22,7 +22,6 @@
 #import "FIRFirestoreSettings.h"
 #import "FIRFirestoreSource.h"
 #import "FIRGeoPoint.h"
-#import "FIRListenerRegistration 2.h"
 #import "FIRListenerRegistration.h"
 #import "FIRQuery.h"
 #import "FIRQuerySnapshot.h"
