@@ -17,14 +17,10 @@ import Firebase
 class mapViewController: UIViewController, MKMapViewDelegate{
     
     //class so an image can be added to point annotation
-    class CustomPointAnnotation: MKPointAnnotation{
+   /* class CustomPointAnnotation: MKPointAnnotation{
         var imageName: String!
-    }
+    }*/
     @IBOutlet weak var map: MKMapView!
-    //pin names taking attributes from custom point class
-    
-    
-    
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -38,7 +34,7 @@ class mapViewController: UIViewController, MKMapViewDelegate{
         //what we will see on the map
         self.map.setRegion(mapRange, animated: false)
         
-        addAnnotation()
+        //addAnnotation()
         map.delegate = self
         
         let rotate = CGFloat(180)
@@ -63,75 +59,79 @@ class mapViewController: UIViewController, MKMapViewDelegate{
         map.isZoomEnabled = false;
         map.isScrollEnabled = false;
         map.showsCompass = false;
-    }
-    //funtion to create annotations
-    private func addAnnotation(){
+       
+        
+        //intializing annotations making them points
         let parkSpaceOne = MKPointAnnotation()
         let parkSpaceTwo = MKPointAnnotation()
         let db = Firestore.firestore()
-     
         
-       
-        
-       //markers on map
-        /*parkSpaceOne.title = "P1"
-        parkSpaceOne.coordinate = CLLocationCoordinate2D(latitude: 39.863037, longitude: -75.357542)
-        map.addAnnotation(parkSpaceOne)
-      
-        parkSpaceTwo.title = "P2"
-        parkSpaceTwo.coordinate = CLLocationCoordinate2D(latitude: 39.863149, longitude: -75.357680)
-        map.addAnnotation(parkSpaceTwo)*/
-        
-        //grabs all the coordinates of the parking spaces in firebase
-        db.collection("ParkingSpaces").getDocuments() { (querySnapshot, err) in
-            if let err = err {
-                print("Error getting documents: \(err)")
-            } else {
-                for document in querySnapshot!.documents {
-                    if let coords = document.get("coordinate") {
-                        let point = coords as! GeoPoint
-                        let lat = point.latitude
-                        let lon = point.longitude
-                        
-                        //string variable for spot field in firebase
-                        let spotpone = document.get("spot") as! String
-                        let spotptwo = document.get("spot") as! String
-                        //if the spot in firbase matches the string then take the coordinates, add them to an annotation and place on the map
-                        if (spotpone == "p1"){
-                            parkSpaceOne.title = "P1"
-                            parkSpaceOne.coordinate = CLLocationCoordinate2D(latitude: lat, longitude: lon)
-                            self.map.addAnnotation(parkSpaceOne)
-                        }
-                        else if (spotptwo == "p2"){
-                            parkSpaceOne.title = "P2"
-                            parkSpaceTwo.coordinate = CLLocationCoordinate2D(latitude: lat, longitude: lon)
-                            self.map.addAnnotation(parkSpaceTwo)
-                        }
-                   
-                        /*if (document.get("spot") === "p1"){
-                       parkSpaceOne.coordinate = CLLocationCoordinate2D(latitude: lat, longitude: lon)
-                        self.map.addAnnotation(parkSpaceOne)
-                        }*/
-                        
-                       
-                        //parkSpaceTwo.coordinate = CLLocationCoordinate2D(latitude: lat, longitude: lon)
-                        
-                        //print(lat, lon)
-                       //self.map.addAnnotation(parkSpaceTwo)
-                        
-                        
-                       
+            //grabs all the coordinates of the parking spaces in firebase
+            db.collection("ParkingSpaces").getDocuments() { (querySnapshot, err) in
+                if let err = err {
+                    print("Error getting documents: \(err)")
+                } else {
+                    for document in querySnapshot!.documents {
+                        if let coords = document.get("coordinate") {
+                            let point = coords as! GeoPoint
+                            let lat = point.latitude
+                            let lon = point.longitude
+                            
+                            //string variable for spot field in firebase
+                            let spotpone = document.get("spot") as! String
+                            let spotptwo = document.get("spot") as! String
+                            //if the spot in firbase matches the string then take the coordinates, add them to an annotation and place on the map
+                            if (spotpone == "p1"){
+                                parkSpaceOne.title = "P1"
+                                parkSpaceOne.coordinate = CLLocationCoordinate2D(latitude: lat, longitude: lon)
+                               self.map.addAnnotation(parkSpaceOne)
+                            
+                            }
+                            else if (spotptwo == "p2"){
+                                parkSpaceTwo.title = "P2"
+                                parkSpaceTwo.coordinate = CLLocationCoordinate2D(latitude: lat, longitude: lon)
+                                self.map.addAnnotation(parkSpaceTwo)
+                            }
                     
+                        }
                        
+                      }
                     }
+                    
                 }
-            }
-        }
-        
-        
-        }
     }
+    //turns MKKPointAnnotations into MkPinAnnotations
+    func mapView(_ mapView: MKMapView, viewFor annotation: MKAnnotation) -> MKAnnotationView? {
+        guard annotation is MKPointAnnotation else { return nil }
+
+        let identifier = "Annotation"
+        var annotationView = mapView.dequeueReusableAnnotationView(withIdentifier: identifier)
+
+        if annotationView == nil {
+            annotationView = MKPinAnnotationView(annotation: annotation, reuseIdentifier: identifier)
+            annotationView!.canShowCallout = true
+        }
+       /* if senderAnnotation.pinColor == PinColor.Green{
+        
+             let pinImage = UIImage(named:"name.png")
+
+             annotationView!.image = pinImage
+
+        }*/ 
+
+        else {
+            annotationView!.annotation = annotation
+        }
+
+        return annotationView
+        }
+        
+    }
+        
+
     
+
+
     /*
     // MARK: - Navigation
 
