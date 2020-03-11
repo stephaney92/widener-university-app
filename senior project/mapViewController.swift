@@ -83,6 +83,8 @@ class mapViewController: UIViewController, MKMapViewDelegate{
                             //if the spot in firbase matches the string then take the coordinates, add them to an annotation and place on the map
                             if (spotpone == "p1"){
                                 parkSpaceOne.title = "P1"
+                                //PLACE HERE if statement if boolean true then is occupied else is availible
+                                parkSpaceOne.subtitle = "Occupied"
                                 parkSpaceOne.coordinate = CLLocationCoordinate2D(latitude: lat, longitude: lon)
                                self.map.addAnnotation(parkSpaceOne)
                             
@@ -106,10 +108,14 @@ class mapViewController: UIViewController, MKMapViewDelegate{
 
         let identifier = "Annotation"
         var annotationView = mapView.dequeueReusableAnnotationView(withIdentifier: identifier)
-
+        //transforms marker to pin
         if annotationView == nil {
             annotationView = MKPinAnnotationView(annotation: annotation, reuseIdentifier: identifier)
             annotationView!.canShowCallout = true
+            
+            //creates button in pop up
+            let btn = UIButton(type: .detailDisclosure)
+            annotationView!.rightCalloutAccessoryView = btn
         }
        /* if senderAnnotation.pinColor == PinColor.Green{
         
@@ -117,7 +123,7 @@ class mapViewController: UIViewController, MKMapViewDelegate{
 
              annotationView!.image = pinImage
 
-        }*/ 
+        }*/
 
         else {
             annotationView!.annotation = annotation
@@ -125,9 +131,14 @@ class mapViewController: UIViewController, MKMapViewDelegate{
 
         return annotationView
         }
+   //clicking on the button checks to see if button was tapped in the annotation take user to timeViewController 
+    func mapView(_ mapView: MKMapView, annotationView view: MKAnnotationView, calloutAccessoryControlTapped control: UIControl) {
+        self.performSegue(withIdentifier: "maptoTimer", sender: nil)
+
         
+        }
     }
-        
+
 
     
 
