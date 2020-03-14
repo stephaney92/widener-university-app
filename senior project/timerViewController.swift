@@ -31,7 +31,7 @@ class timerViewController: UIViewController {
     }
     @objc func updateTimer() {
         seconds -= 1     //This will decrement(count down)the seconds.
-        timerLabel.text = "\(seconds)" //This will update the label.
+        timerLabel.text = timeString(time: TimeInterval(seconds)) //This will update the label. This will send it through the timeString method where it will be formatted first and then set as the text label
     }
     //The first time the stop button is tapped the resumeTapped will be false and the timer will be stopped with timer.invalidate(), else The following time the pause button is tapped runTimer() will again initialize the timer
     @IBAction func stopButtonPressed(_ sender: UIButton) {
@@ -48,6 +48,13 @@ class timerViewController: UIViewController {
         timer.invalidate()
         seconds = 60
         timerLabel.text = "\(seconds)"
+    }
+    //It will take a time interval or Integer and return a String with the formatted time. The label will now update using this string. create a seconds, hours, mins
+    func timeString(time:TimeInterval) -> String {
+    let hours = Int(time) / 3600
+    let minutes = Int(time) / 60 % 60
+    let seconds = Int(time) % 60
+    return String(format: "%02i:%02i:%02i", hours, minutes, seconds)
     }
     /*
     // MARK: - Navigation
