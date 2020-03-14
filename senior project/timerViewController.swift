@@ -11,13 +11,13 @@ import UIKit
 class timerViewController: UIViewController {
 
    @IBOutlet weak var timerLabel: UILabel!
-    var totalSeconds = 7200 //This variable will hold a starting value of seconds. 7200 = 2 hours
+    var totalSeconds = 0 //This variable will hold a starting value of seconds. starts clock at 0 until add time is click which will add 30 mins 
     var seconds = 0
     var minutes = 0
     var hours = 0
     var timer = Timer()
     var isTimerRunning = false //This will be used to make sure only one timer is created at a time.
-    var resumeTapped = false
+    var stopTapped = false
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -28,7 +28,7 @@ class timerViewController: UIViewController {
     @IBAction func startButtonPressed(_ sender: UIButton) {
         //creates one timer when start is pressed
         if isTimerRunning == false{
-        runTimer()
+            runTimer()
         //once timer starts the button cant be pressed again
         
         }
@@ -51,20 +51,22 @@ class timerViewController: UIViewController {
     }
     //The first time the stop button is tapped the resumeTapped will be false and the timer will be stopped with timer.invalidate(), else The following time the pause button is tapped runTimer() will again initialize the timer
     @IBAction func stopButtonPressed(_ sender: UIButton) {
-        if self.resumeTapped == false {
+        if self.stopTapped == false {
                  timer.invalidate()
-                 self.resumeTapped = true
+                 totalSeconds = 0 //timer is now at 0
+                 timerLabel.text = timeString(time: TimeInterval(totalSeconds))
+                 /*self.resumeTapped = true
             } else {
                  runTimer()
                  self.resumeTapped = false
-            }
+            }*/
+        }
     }
     //stops timer and resets the clock back to zero
     @IBAction func addButtonPressed(_ sender: UIButton) {
-         timer.invalidate()
-         seconds = 0
-         minutes = 0
-         hours = 0
+         totalSeconds += 1800 //adds 30 mins to timer
+         
+        //takes code from this function sends to string function to send to label in timerviewcontroller
          timerLabel.text = timeString(time: TimeInterval(totalSeconds))
          
          isTimerRunning = false
