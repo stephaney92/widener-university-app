@@ -96,7 +96,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="nTL-RC-daF" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="3037.68115942029" y="687.72321428571422"/>
+            <point key="canvasLocation" x="2974" y="692"/>
         </scene>
         <!--Map View Controller-->
         <scene sceneID="1Ub-qZ-leB">
@@ -130,14 +130,41 @@
                     <view key="view" contentMode="scaleToFill" id="e3v-Hd-6VK">
                         <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="H28-hq-Fo1">
+                                <rect key="frame" x="59" y="361" width="34" height="30"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <state key="normal" title="Start"/>
+                                <connections>
+                                    <action selector="startButtonPressed:" destination="q8j-bY-gZM" eventType="touchUpInside" id="Gqk-PT-Igd"/>
+                                </connections>
+                            </button>
+                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="eJ8-cm-TO5">
+                                <rect key="frame" x="191" y="361" width="32" height="30"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <state key="normal" title="Stop"/>
+                                <connections>
+                                    <action selector="stopButtonPressed:" destination="q8j-bY-gZM" eventType="touchUpInside" id="pAa-Gd-mQb"/>
+                                </connections>
+                            </button>
+                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="mAh-hp-juA">
+                                <rect key="frame" x="317" y="361" width="30" height="30"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <state key="normal" title="Add"/>
+                                <connections>
+                                    <action selector="addButtonPressed:" destination="q8j-bY-gZM" eventType="touchUpInside" id="wvL-2H-snC"/>
+                                </connections>
+                            </button>
+                        </subviews>
                         <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
                         <viewLayoutGuide key="safeArea" id="Ce4-bl-ahK"/>
                     </view>
                     <navigationItem key="navigationItem" id="AZc-gV-YaZ"/>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="i4A-yp-nYn" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+                <exit id="q8j-bY-gZM" userLabel="Exit" sceneMemberID="exit"/>
             </objects>
-            <point key="canvasLocation" x="5307" y="115"/>
+            <point key="canvasLocation" x="5305.7971014492759" y="114.50892857142857"/>
         </scene>
         <!--Create Account View Controller-->
         <scene sceneID="4vo-fC-scp">
@@ -257,6 +284,6 @@
         </scene>
     </scenes>
     <inferredMetricsTieBreakers>
-        <segue reference="9rt-Ab-rz5"/>
+        <segue reference="Lw3-za-fii"/>
     </inferredMetricsTieBreakers>
 </document>

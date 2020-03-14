@@ -8,6 +8,7 @@
 
 /* Begin PBXBuildFile section */
 		5F19058024189279003CEC05 /* timeViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5F19057F24189279003CEC05 /* timeViewController.swift */; };
+		5F44E5E1241C5E9900B2CC0A /* timerViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5F44E5E0241C5E9900B2CC0A /* timerViewController.swift */; };
 		5F5563C423E0191E00A6C62E /* createAccountViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5F5563C323E0191E00A6C62E /* createAccountViewController.swift */; };
 		5F5563C823FCCF1300A6C62E /* mapViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5F5563C723FCCF1300A6C62E /* mapViewController.swift */; };
 		5F5563CA23FF060A00A6C62E /* constants.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5F5563C923FF060A00A6C62E /* constants.swift */; };
@@ -47,6 +48,7 @@
 		2CB216AC428E319370A5AA39 /* Pods-senior project-senior projectUITests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-senior project-senior projectUITests.debug.xcconfig"; path = "Target Support Files/Pods-senior project-senior projectUITests/Pods-senior project-senior projectUITests.debug.xcconfig"; sourceTree = "<group>"; };
 		567444C1887E96FDEBA970D3 /* Pods-senior projectTests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-senior projectTests.debug.xcconfig"; path = "Target Support Files/Pods-senior projectTests/Pods-senior projectTests.debug.xcconfig"; sourceTree = "<group>"; };
 		5F19057F24189279003CEC05 /* timeViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = timeViewController.swift; sourceTree = "<group>"; };
+		5F44E5E0241C5E9900B2CC0A /* timerViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = timerViewController.swift; sourceTree = "<group>"; };
 		5F5563C323E0191E00A6C62E /* createAccountViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = createAccountViewController.swift; sourceTree = "<group>"; };
 		5F5563C723FCCF1300A6C62E /* mapViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = mapViewController.swift; sourceTree = "<group>"; };
 		5F5563C923FF060A00A6C62E /* constants.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = constants.swift; sourceTree = "<group>"; };
@@ -141,6 +143,7 @@
 				5F5563C723FCCF1300A6C62E /* mapViewController.swift */,
 				5F5563C923FF060A00A6C62E /* constants.swift */,
 				5F5563CD23FF218700A6C62E /* logintoCarViewController.swift */,
+				5F44E5E0241C5E9900B2CC0A /* timerViewController.swift */,
 			);
 			path = "senior project";
 			sourceTree = "<group>";
@@ -444,6 +447,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				5F44E5E1241C5E9900B2CC0A /* timerViewController.swift in Sources */,
 				5FAEFF4F23DFB6D900CBC3E1 /* ViewController.swift in Sources */,
 				5F5563C423E0191E00A6C62E /* createAccountViewController.swift in Sources */,
 				5FAEFF4D23DFB6D900CBC3E1 /* AppDelegate.swift in Sources */,
