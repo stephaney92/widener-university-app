@@ -23,15 +23,27 @@ class timerViewController: UIViewController {
     }
     
     @IBAction func startButtonPressed(_ sender: UIButton) {
+        //creates one timer when start is pressed
+        if isTimerRunning == false{
         runTimer()
+        //once timer starts the button cant be pressed again
+        
+        }
     }
     //timeInterval - how often the a method will be called, selector - method being called updateTimer
     func runTimer() {
          timer = Timer.scheduledTimer(timeInterval: 1, target: self,   selector: #selector(updateTimer), userInfo: nil, repeats: true)
+        isTimerRunning = true
     }
+    //if time is less then 1 stop timer else keep counting down
     @objc func updateTimer() {
-        seconds -= 1     //This will decrement(count down)the seconds.
-        timerLabel.text = timeString(time: TimeInterval(seconds)) //This will update the label. This will send it through the timeString method where it will be formatted first and then set as the text label
+        if seconds < 1 {
+             timer.invalidate()
+             //Send alert to indicate "time's up!" UI alert
+        } else {
+             seconds -= 1
+             timerLabel.text = timeString(time: TimeInterval(seconds)) //This will update the label. This will send it through the timeString method where it will be formatted first and then set as the text label
+        }
     }
     //The first time the stop button is tapped the resumeTapped will be false and the timer will be stopped with timer.invalidate(), else The following time the pause button is tapped runTimer() will again initialize the timer
     @IBAction func stopButtonPressed(_ sender: UIButton) {
@@ -45,9 +57,10 @@ class timerViewController: UIViewController {
     }
     //stops timer and resets the clock back to zero
     @IBAction func addButtonPressed(_ sender: UIButton) {
-        timer.invalidate()
-        seconds = 60
-        timerLabel.text = "\(seconds)"
+         timer.invalidate()
+         seconds = 0
+         timerLabel.text = timeString(time: TimeInterval(seconds))
+         isTimerRunning = false
     }
     //It will take a time interval or Integer and return a String with the formatted time. The label will now update using this string. create a seconds, hours, mins
     func timeString(time:TimeInterval) -> String {
