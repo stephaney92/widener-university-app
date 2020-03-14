@@ -123,10 +123,10 @@
             </objects>
             <point key="canvasLocation" x="4058" y="115"/>
         </scene>
-        <!--Time View Controller-->
+        <!--Timer View Controller-->
         <scene sceneID="Xjx-6p-Ync">
             <objects>
-                <viewController id="Lwf-0e-2yq" customClass="timeViewController" customModule="senior_project" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController id="Lwf-0e-2yq" customClass="timerViewController" customModule="senior_project" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="e3v-Hd-6VK">
                         <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -136,7 +136,7 @@
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <state key="normal" title="Start"/>
                                 <connections>
-                                    <action selector="startButtonPressed:" destination="q8j-bY-gZM" eventType="touchUpInside" id="Gqk-PT-Igd"/>
+                                    <action selector="startButtonPressed:" destination="Lwf-0e-2yq" eventType="touchUpInside" id="xNU-XO-6up"/>
                                 </connections>
                             </button>
                             <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="eJ8-cm-TO5">
@@ -144,7 +144,7 @@
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <state key="normal" title="Stop"/>
                                 <connections>
-                                    <action selector="stopButtonPressed:" destination="q8j-bY-gZM" eventType="touchUpInside" id="pAa-Gd-mQb"/>
+                                    <action selector="stopButtonPressed:" destination="Lwf-0e-2yq" eventType="touchUpInside" id="Yrd-cp-nTU"/>
                                 </connections>
                             </button>
                             <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="mAh-hp-juA">
@@ -152,17 +152,26 @@
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <state key="normal" title="Add"/>
                                 <connections>
-                                    <action selector="addButtonPressed:" destination="q8j-bY-gZM" eventType="touchUpInside" id="wvL-2H-snC"/>
+                                    <action selector="addButtonPressed:" destination="Lwf-0e-2yq" eventType="touchUpInside" id="9Yz-yL-xdz"/>
                                 </connections>
                             </button>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="zw3-Mh-UPg">
+                                <rect key="frame" x="59" y="132" width="288" height="160"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <nil key="textColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
                         </subviews>
                         <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
                         <viewLayoutGuide key="safeArea" id="Ce4-bl-ahK"/>
                     </view>
                     <navigationItem key="navigationItem" id="AZc-gV-YaZ"/>
+                    <connections>
+                        <outlet property="timerLabel" destination="zw3-Mh-UPg" id="AJz-pa-5Ct"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="i4A-yp-nYn" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
-                <exit id="q8j-bY-gZM" userLabel="Exit" sceneMemberID="exit"/>
             </objects>
             <point key="canvasLocation" x="5305.7971014492759" y="114.50892857142857"/>
         </scene>
@@ -284,6 +293,6 @@
         </scene>
     </scenes>
     <inferredMetricsTieBreakers>
-        <segue reference="Lw3-za-fii"/>
+        <segue reference="9rt-Ab-rz5"/>
     </inferredMetricsTieBreakers>
 </document>
