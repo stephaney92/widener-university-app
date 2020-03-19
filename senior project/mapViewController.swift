@@ -110,21 +110,15 @@ class mapViewController: UIViewController, MKMapViewDelegate{
         var annotationView = mapView.dequeueReusableAnnotationView(withIdentifier: identifier)
         //transforms marker to pin
         if annotationView == nil {
-            annotationView = MKPinAnnotationView(annotation: annotation, reuseIdentifier: identifier)
+            annotationView = MKAnnotationView(annotation: annotation, reuseIdentifier: identifier)
+            //annotationView!.image = UIImage(named: "redticker")
+            annotationView!.image = UIImage(named: "greenticker")
             annotationView!.canShowCallout = true
             
             //creates button in pop up
             let btn = UIButton(type: .detailDisclosure)
             annotationView!.rightCalloutAccessoryView = btn
         }
-       /* if senderAnnotation.pinColor == PinColor.Green{
-        
-             let pinImage = UIImage(named:"name.png")
-
-             annotationView!.image = pinImage
-
-        }*/
-
         else {
             annotationView!.annotation = annotation
         }

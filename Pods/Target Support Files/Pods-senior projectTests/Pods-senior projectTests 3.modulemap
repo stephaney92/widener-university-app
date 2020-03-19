@@ -1,6 +1,0 @@
-framework module Pods_senior_projectTests {
-  umbrella header "Pods-senior projectTests-umbrella.h"
-
-  export *
-  module * { export * }
-}
