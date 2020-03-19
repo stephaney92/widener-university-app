@@ -29,7 +29,8 @@ class timerViewController: UIViewController {
         //creates one timer when start is pressed
         if isTimerRunning == false{
             runTimer()
-        //once timer starts the button cant be pressed again
+            
+            
         
         }
     }

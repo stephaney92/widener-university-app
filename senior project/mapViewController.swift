@@ -17,14 +17,15 @@ import Firebase
 class mapViewController: UIViewController, MKMapViewDelegate{
     
     //class so an image can be added to point annotation
-   /* class CustomPointAnnotation: MKPointAnnotation{
+    class CustomPointAnnotation: MKPointAnnotation{
         var imageName: String!
-    }*/
+    }
     @IBOutlet weak var map: MKMapView!
     
     override func viewDidLoad() {
         super.viewDidLoad()
-      
+        self.navigationItem.backBarButtonItem = nil;
+        
         //set the map location to a specific location when the view loads
         let centerLocation = CLLocationCoordinate2DMake(39.863048 , -75.357583)
         //logingitude and latitude that the map will cover
@@ -62,8 +63,8 @@ class mapViewController: UIViewController, MKMapViewDelegate{
        
         
         //intializing annotations making them points
-        let parkSpaceOne = MKPointAnnotation()
-        let parkSpaceTwo = MKPointAnnotation()
+        let parkSpaceOne = CustomPointAnnotation()
+        let parkSpaceTwo = CustomPointAnnotation()
         let db = Firestore.firestore()
         
             //grabs all the coordinates of the parking spaces in firebase
@@ -86,12 +87,14 @@ class mapViewController: UIViewController, MKMapViewDelegate{
                                 //PLACE HERE if statement if boolean true then is occupied else is availible
                                 parkSpaceOne.subtitle = "Occupied"
                                 parkSpaceOne.coordinate = CLLocationCoordinate2D(latitude: lat, longitude: lon)
+                                parkSpaceOne.imageName = "greenticker"
                                self.map.addAnnotation(parkSpaceOne)
                             
                             }
                             else if (spotptwo == "p2"){
                                 parkSpaceTwo.title = "P2"
                                 parkSpaceTwo.coordinate = CLLocationCoordinate2D(latitude: lat, longitude: lon)
+                                parkSpaceTwo.imageName = "redticker"
                                 self.map.addAnnotation(parkSpaceTwo)
                             }
                     
@@ -111,8 +114,6 @@ class mapViewController: UIViewController, MKMapViewDelegate{
         //transforms marker to pin
         if annotationView == nil {
             annotationView = MKAnnotationView(annotation: annotation, reuseIdentifier: identifier)
-            //annotationView!.image = UIImage(named: "redticker")
-            annotationView!.image = UIImage(named: "greenticker")
             annotationView!.canShowCallout = true
             
             //creates button in pop up
@@ -122,14 +123,18 @@ class mapViewController: UIViewController, MKMapViewDelegate{
         else {
             annotationView!.annotation = annotation
         }
-
+        //can call the different annotaiton pictures per ticker
+        let cpa = annotation as! CustomPointAnnotation
+        annotationView!.image = UIImage(named: cpa.imageName)
+         
+        
         return annotationView
         }
    //clicking on the button checks to see if button was tapped in the annotation take user to timeViewController 
     func mapView(_ mapView: MKMapView, annotationView view: MKAnnotationView, calloutAccessoryControlTapped control: UIControl) {
+    
         self.performSegue(withIdentifier: "maptoTimer", sender: nil)
 
-        
         }
     }
 
