@@ -65,6 +65,7 @@ class mapViewController: UIViewController, MKMapViewDelegate{
         //intializing annotations making them points
         let parkSpaceOne = CustomPointAnnotation()
         let parkSpaceTwo = CustomPointAnnotation()
+        var points: [CustomPointAnnotation] = []
         let db = Firestore.firestore()
         
             //grabs all the coordinates of the parking spaces in firebase
@@ -88,21 +89,26 @@ class mapViewController: UIViewController, MKMapViewDelegate{
                                 parkSpaceOne.subtitle = "Occupied"
                                 parkSpaceOne.coordinate = CLLocationCoordinate2D(latitude: lat, longitude: lon)
                                 parkSpaceOne.imageName = "greenticker"
-                               self.map.addAnnotation(parkSpaceOne)
+                               //self.map.addAnnotation(parkSpaceOne)
+                                points.append(parkSpaceOne)
                             
                             }
                             else if (spotptwo == "p2"){
                                 parkSpaceTwo.title = "P2"
                                 parkSpaceTwo.coordinate = CLLocationCoordinate2D(latitude: lat, longitude: lon)
                                 parkSpaceTwo.imageName = "redticker"
-                                self.map.addAnnotation(parkSpaceTwo)
+                                //self.map.addAnnotation(parkSpaceTwo)
+                                points.append(parkSpaceTwo)
                             }
                     
                         }
                        
                       }
+    
                     }
-                    
+                    for i in points{
+                        self.map.addAnnotation(i)
+                    }
                 }
     }
     //turns MKKPointAnnotations into MkPinAnnotations
