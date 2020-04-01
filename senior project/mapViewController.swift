@@ -10,12 +10,8 @@ import UIKit
 import MapKit
 import Firebase
 
-
-//building the pin ticker
-
-
 class mapViewController: UIViewController, MKMapViewDelegate{
-    
+
     //class so an image can be added to point annotation
     class CustomPointAnnotation: MKPointAnnotation{
         var imageName: String!
@@ -74,7 +70,7 @@ class mapViewController: UIViewController, MKMapViewDelegate{
                     print("Error getting documents: \(err)")
                 } else {
                     for document in querySnapshot!.documents {
-                        if let coords = document.get("coordinate") {
+                        if let coords = document.get("location") {
                             let point = coords as! GeoPoint
                             let lat = point.latitude
                             let lon = point.longitude
@@ -86,7 +82,7 @@ class mapViewController: UIViewController, MKMapViewDelegate{
                             if (spotpone == "p1"){
                                 parkSpaceOne.title = "P1"
                                 //PLACE HERE if statement if boolean true then is occupied else is availible
-                                parkSpaceOne.subtitle = "Occupied"
+                                parkSpaceOne.subtitle = "Available"
                                 parkSpaceOne.coordinate = CLLocationCoordinate2D(latitude: lat, longitude: lon)
                                 parkSpaceOne.imageName = "greenticker"
                                //self.map.addAnnotation(parkSpaceOne)
@@ -95,8 +91,9 @@ class mapViewController: UIViewController, MKMapViewDelegate{
                             }
                             else if (spotptwo == "p2"){
                                 parkSpaceTwo.title = "P2"
+                                parkSpaceTwo.subtitle = "Available"
                                 parkSpaceTwo.coordinate = CLLocationCoordinate2D(latitude: lat, longitude: lon)
-                                parkSpaceTwo.imageName = "redticker"
+                                parkSpaceTwo.imageName = "greenticker"
                                 //self.map.addAnnotation(parkSpaceTwo)
                                 points.append(parkSpaceTwo)
                             }
@@ -123,8 +120,9 @@ class mapViewController: UIViewController, MKMapViewDelegate{
             annotationView!.canShowCallout = true
             
             //creates button in pop up
-            let btn = UIButton(type: .detailDisclosure)
+           let btn = UIButton(type: .detailDisclosure)
             annotationView!.rightCalloutAccessoryView = btn
+            
         }
         else {
             annotationView!.annotation = annotation
@@ -137,14 +135,31 @@ class mapViewController: UIViewController, MKMapViewDelegate{
         return annotationView
         }
    //clicking on the button checks to see if button was tapped in the annotation take user to timeViewController 
-    func mapView(_ mapView: MKMapView, annotationView view: MKAnnotationView, calloutAccessoryControlTapped control: UIControl) {
+  func mapView(_ mapView: MKMapView, annotationView view: MKAnnotationView, calloutAccessoryControlTapped control: UIControl) {
     
         self.performSegue(withIdentifier: "maptoTimer", sender: nil)
 
         }
+    //empty variable to place coordinates in 
+    var locationCoordinate = CLLocationCoordinate2D(latitude: 0, longitude: 0)
+    //finding the selected annotation
+    func mapView(_ mapView: MKMapView, didSelect view: MKAnnotationView){
+        locationCoordinate = view.annotation!.coordinate
+        print("selected annotation", view.annotation as Any)
+        print("selected annotation", view.annotation?.title as Any)
+        print("selected annotation", view.annotation?.coordinate as Any)
+        self.performSegue(withIdentifier: "maptoTimer", sender: nil)
+      
     }
-
-
+    //takes the coordinantes from annotation that was clicked and sends them to the variable datafrommap in timer view controller 
+    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+        if (segue.identifier == "maptoTimer") {
+         let destVC : timerViewController = segue.destination as! timerViewController
+         destVC.dataFromMap = locationCoordinate
+        }
+     
+     }
+    
     
 
 
@@ -158,3 +173,5 @@ class mapViewController: UIViewController, MKMapViewDelegate{
     }
     */
 
+    }
+  

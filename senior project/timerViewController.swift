@@ -7,10 +7,17 @@
 //
 
 import UIKit
+import MapKit
+import Firebase
 
-class timerViewController: UIViewController {
-
-   @IBOutlet weak var timerLabel: UILabel!
+class timerViewController: UIViewController, MKMapViewDelegate {
+   class CustomPointAnnotation: MKPointAnnotation{
+       var imageName: String!
+   }
+    @IBOutlet weak var parkingPoint: MKMapView!
+    @IBOutlet weak var timerLabel: UILabel!
+    var dataFromMap = CLLocationCoordinate2D()
+    
     var totalSeconds = 0 //This variable will hold a starting value of seconds. starts clock at 0 until add time is click which will add 30 mins 
     var seconds = 0
     var minutes = 0
@@ -18,11 +25,33 @@ class timerViewController: UIViewController {
     var timer = Timer()
     var isTimerRunning = false //This will be used to make sure only one timer is created at a time.
     var stopTapped = false
+    let db = Firestore.firestore()
+    let parkSpace = CustomPointAnnotation()
+  
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        //set the map location to a specific location when the view loads
+        let centerLocation = CLLocationCoordinate2DMake(39.863048 , -75.357583)
+        //logingitude and latitude that the map will cover
+        let mapSpan = MKCoordinateSpan(latitudeDelta: 0.001, longitudeDelta: 0.001)
+        //range that the map will show
+        let mapRange = MKCoordinateRegion(center: centerLocation, span: mapSpan)
+        //what we will see on the map
+        self.parkingPoint.setRegion(mapRange, animated: false)
+        
+        //zooms into location
+        /*let viewRegion = MKCoordinateRegion(center: centerLocation, latitudinalMeters: 10, longitudinalMeters: 10)
+        parkingPoint.setRegion(viewRegion, animated: false)*/
+        
+        //addAnnotation()
+        parkingPoint.delegate = self
+        //pulls annotation coordinates from mapview and places them on timer map
+        parkSpace.coordinate = dataFromMap
+        parkSpace.imageName = "greenticker"
+        parkingPoint.addAnnotation(parkSpace)
+        
 
-        // Do any additional setup after loading the view.
     }
     
     @IBAction func startButtonPressed(_ sender: UIButton) {
@@ -89,5 +118,30 @@ class timerViewController: UIViewController {
         // Pass the selected object to the new view controller.
     }
     */
+    
+    //adds annotations to map view
+    func mapView(_ mapView: MKMapView, viewFor annotation: MKAnnotation) -> MKAnnotationView? {
+    guard annotation is MKPointAnnotation else { return nil }
 
+    let identifier = "Annotation"
+    var annotationView = mapView.dequeueReusableAnnotationView(withIdentifier: identifier)
+    //transforms marker to pin
+    if annotationView == nil {
+        annotationView = MKAnnotationView(annotation: annotation, reuseIdentifier: identifier)
+        annotationView!.canShowCallout = true
+        
+        //creates button in pop up
+       let btn = UIButton(type: .detailDisclosure)
+        annotationView!.rightCalloutAccessoryView = btn
+    }
+    else {
+        annotationView!.annotation = annotation
+    }
+    //can call the different annotaiton pictures per ticker
+    let cpa = annotation as! CustomPointAnnotation
+    annotationView!.image = UIImage(named: cpa.imageName)
+     
+    
+    return annotationView
+    }
 }
