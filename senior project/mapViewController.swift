@@ -17,6 +17,7 @@ class mapViewController: UIViewController, MKMapViewDelegate{
         var imageName: String!
     }
     @IBOutlet weak var map: MKMapView!
+    var plateName: String = ""
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -30,6 +31,8 @@ class mapViewController: UIViewController, MKMapViewDelegate{
         let mapRange = MKCoordinateRegion(center: centerLocation, span: mapSpan)
         //what we will see on the map
         self.map.setRegion(mapRange, animated: false)
+        
+       
         
         //addAnnotation()
         map.delegate = self
@@ -75,6 +78,7 @@ class mapViewController: UIViewController, MKMapViewDelegate{
                             let lat = point.latitude
                             let lon = point.longitude
                             
+                            
                             //string variable for spot field in firebase
                             let spotpone = document.get("spot") as! String
                             let spotptwo = document.get("spot") as! String
@@ -82,7 +86,7 @@ class mapViewController: UIViewController, MKMapViewDelegate{
                             if (spotpone == "p1"){
                                 parkSpaceOne.title = "P1"
                                 //PLACE HERE if statement if boolean true then is occupied else is availible
-                                parkSpaceOne.subtitle = "Available"
+                                parkSpaceOne.subtitle = self.plateName
                                 parkSpaceOne.coordinate = CLLocationCoordinate2D(latitude: lat, longitude: lon)
                                 parkSpaceOne.imageName = "greenticker"
                                //self.map.addAnnotation(parkSpaceOne)
@@ -91,22 +95,20 @@ class mapViewController: UIViewController, MKMapViewDelegate{
                             }
                             else if (spotptwo == "p2"){
                                 parkSpaceTwo.title = "P2"
-                                parkSpaceTwo.subtitle = "Available"
+                                parkSpaceTwo.subtitle = self.plateName
                                 parkSpaceTwo.coordinate = CLLocationCoordinate2D(latitude: lat, longitude: lon)
                                 parkSpaceTwo.imageName = "greenticker"
                                 //self.map.addAnnotation(parkSpaceTwo)
                                 points.append(parkSpaceTwo)
                             }
-                    
                         }
-                       
                       }
-    
+                    
                     }
                     for i in points{
                         self.map.addAnnotation(i)
                     }
-                }
+            }
     }
     //turns MKKPointAnnotations into MkPinAnnotations
     func mapView(_ mapView: MKMapView, viewFor annotation: MKAnnotation) -> MKAnnotationView? {
@@ -130,7 +132,7 @@ class mapViewController: UIViewController, MKMapViewDelegate{
         //can call the different annotaiton pictures per ticker
         let cpa = annotation as! CustomPointAnnotation
         annotationView!.image = UIImage(named: cpa.imageName)
-         
+        
         
         return annotationView
         }
@@ -159,6 +161,10 @@ class mapViewController: UIViewController, MKMapViewDelegate{
         }
      
      }
+    //pulls in the information from the timer view controller
+    func userDidEnterInformation(info: String) {
+        plateName = info
+    }
     
     
 

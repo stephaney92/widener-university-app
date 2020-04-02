@@ -69,5 +69,129 @@
             landmarkType = "0">
          </BreakpointContent>
       </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            uuid = "F63D4ED2-AE76-48B2-B375-4CFE8C7DC1F6"
+            shouldBeEnabled = "No"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "senior project/mapViewController.swift"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "146"
+            endingLineNumber = "146"
+            landmarkName = "mapViewController"
+            landmarkType = "3">
+            <Locations>
+               <Location
+                  uuid = "F63D4ED2-AE76-48B2-B375-4CFE8C7DC1F6 - 2acae866aca3fdc4"
+                  shouldBeEnabled = "No"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "senior_project.mapViewController.locationCoordinate.getter : __C.CLLocationCoordinate2D"
+                  moduleName = "senior project"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/stephaney92/Desktop/widener-university-app/senior%20project/mapViewController.swift"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "146"
+                  endingLineNumber = "146"
+                  offsetFromSymbolStart = "129">
+               </Location>
+               <Location
+                  uuid = "F63D4ED2-AE76-48B2-B375-4CFE8C7DC1F6 - a3e9daf60c5c55f0"
+                  shouldBeEnabled = "No"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "senior_project.mapViewController.locationCoordinate.setter : __C.CLLocationCoordinate2D"
+                  moduleName = "senior project"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/stephaney92/Desktop/widener-university-app/senior%20project/mapViewController.swift"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "146"
+                  endingLineNumber = "146"
+                  offsetFromSymbolStart = "146">
+               </Location>
+               <Location
+                  uuid = "F63D4ED2-AE76-48B2-B375-4CFE8C7DC1F6 - c393d94ba98a4bc7"
+                  shouldBeEnabled = "No"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "senior_project.mapViewController.locationCoordinate.modify : __C.CLLocationCoordinate2D"
+                  moduleName = "senior project"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/stephaney92/Desktop/widener-university-app/senior%20project/mapViewController.swift"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "0"
+                  endingLineNumber = "0"
+                  offsetFromSymbolStart = "18">
+               </Location>
+               <Location
+                  uuid = "F63D4ED2-AE76-48B2-B375-4CFE8C7DC1F6 - 9b86320c862a8e6a"
+                  shouldBeEnabled = "No"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "senior_project.mapViewController.locationCoordinate.modify : __C.CLLocationCoordinate2D with unmangled suffix &quot;.resume.0&quot;"
+                  moduleName = "senior project"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/stephaney92/Desktop/widener-university-app/senior%20project/mapViewController.swift"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "146"
+                  endingLineNumber = "146"
+                  offsetFromSymbolStart = "4">
+               </Location>
+               <Location
+                  uuid = "F63D4ED2-AE76-48B2-B375-4CFE8C7DC1F6 - d09c9d53aa71be57"
+                  shouldBeEnabled = "No"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "senior_project.mapViewController.init(nibName: Swift.Optional&lt;Swift.String&gt;, bundle: Swift.Optional&lt;__C.NSBundle&gt;) -&gt; senior_project.mapViewController"
+                  moduleName = "senior project"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/stephaney92/Desktop/widener-university-app/senior%20project/mapViewController.swift"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "146"
+                  endingLineNumber = "146"
+                  offsetFromSymbolStart = "410">
+               </Location>
+               <Location
+                  uuid = "F63D4ED2-AE76-48B2-B375-4CFE8C7DC1F6 - 9938520f4637239b"
+                  shouldBeEnabled = "No"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "senior_project.mapViewController.init(coder: __C.NSCoder) -&gt; Swift.Optional&lt;senior_project.mapViewController&gt;"
+                  moduleName = "senior project"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/stephaney92/Desktop/widener-university-app/senior%20project/mapViewController.swift"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "146"
+                  endingLineNumber = "146"
+                  offsetFromSymbolStart = "336">
+               </Location>
+            </Locations>
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            uuid = "8337A140-D33C-4D07-A728-125B920B8E5E"
+            shouldBeEnabled = "No"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "senior project/mapViewController.swift"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "153"
+            endingLineNumber = "153"
+            landmarkName = "mapView(_:didSelect:)"
+            landmarkType = "7">
+         </BreakpointContent>
+      </BreakpointProxy>
    </Breakpoints>
 </Bucket>
