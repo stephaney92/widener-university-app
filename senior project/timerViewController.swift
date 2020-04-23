@@ -60,7 +60,7 @@ class timerViewController: UIViewController, MKMapViewDelegate {
         //pulls annotation coordinates from mapview and places them on timer map
        
         parkSpace.coordinate = dataFromMap
-        parkSpace.imageName = "greenticker"
+        parkSpace.imageName = "redticker"
         parkingPoint.addAnnotation(parkSpace)
         
     }

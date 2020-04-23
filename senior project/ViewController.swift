@@ -8,13 +8,17 @@
 
 import UIKit
 import Firebase
+import AVKit
 
 class ViewController: UIViewController {
-    //email and password variables for login page 
-   
+    
+    
     
     override func viewDidLoad() {
         super.viewDidLoad()
         // Do any additional setup after loading the view.
+    
+    
     }
+   
 }
