@@ -21,7 +21,8 @@ class mapViewController: UIViewController, MKMapViewDelegate{
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        self.navigationItem.backBarButtonItem = nil;
+        
+        navigationItem.hidesBackButton = true;
         
         //set the map location to a specific location when the view loads
         let centerLocation = CLLocationCoordinate2DMake(39.863048 , -75.357583)
@@ -771,9 +772,23 @@ class mapViewController: UIViewController, MKMapViewDelegate{
         plateName = info
     }
     
+    //refreshes the map page
+    @IBAction func refreshPressed(_ sender: Any) {
+        viewDidLoad()
+    }
+    //logging out users
     
-
-
+    @IBAction func logoutButtonPressed(_ sender: Any) {
+            let firebaseAuth = Auth.auth()
+        do {
+          try firebaseAuth.signOut()
+            //pops all the views off the stack and sends the user to the homepage
+            navigationController?.popToRootViewController(animated: true)
+        } catch let signOutError as NSError {
+          print ("Error signing out: %@", signOutError)
+        }
+          
+    }
     /*
     // MARK: - Navigation
 

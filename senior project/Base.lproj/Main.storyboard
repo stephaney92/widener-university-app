@@ -116,12 +116,20 @@
                                 <rect key="frame" x="0.0" y="88" width="414" height="715"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                             </mapView>
-                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="OKJ-Ga-n9T">
-                                <rect key="frame" x="339" y="832" width="46" height="30"/>
+                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Rze-tV-2N7">
+                                <rect key="frame" x="287" y="811" width="96" height="51"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                <state key="normal" title="Button"/>
+                                <state key="normal" title="Refresh"/>
                                 <connections>
-                                    <segue destination="PDf-GQ-s5f" kind="show" id="OJF-Iq-9kk"/>
+                                    <action selector="refreshPressed:" destination="PDf-GQ-s5f" eventType="touchUpInside" id="Vew-ps-x24"/>
+                                </connections>
+                            </button>
+                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="vgx-v5-gHA">
+                                <rect key="frame" x="43" y="811" width="88" height="51"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <state key="normal" title="Logout"/>
+                                <connections>
+                                    <action selector="logoutButtonPressed:" destination="PDf-GQ-s5f" eventType="touchUpInside" id="Y8S-QK-Xqs"/>
                                 </connections>
                             </button>
                         </subviews>
@@ -136,7 +144,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="tjT-Rn-NCP" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="4058" y="115"/>
+            <point key="canvasLocation" x="4057.971014492754" y="114.50892857142857"/>
         </scene>
         <!--Timer View Controller-->
         <scene sceneID="Xjx-6p-Ync">
